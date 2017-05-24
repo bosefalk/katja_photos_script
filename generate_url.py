@@ -20,3 +20,4 @@ def generate_url(folder_name):
             f.write('def ' + folder_name + '():' + '\n')
             f.write("\treturn send_file('" + zip_download + "', as_attachment=True)")
 
+    return(url)

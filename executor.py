@@ -8,5 +8,9 @@ print('Done')
 
 
 print('Generating url...', end = "")
-generate_url(sys.argv[1])
+url = generate_url(sys.argv[1])
 print('Done')
+
+print('\n')
+print('Download url is:')
+print('localhost:5000' + url)
