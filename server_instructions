@@ -5,8 +5,8 @@ some instructions here: https://www.digitalocean.com/community/tutorials/how-to-
 create virtual environment: http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
 
 cd katja_photos_script
-virtualenv -p /usr/bin/python3.5 wfb-env
-source wfb-env/bin/activate
+virtualenv -p /usr/bin/python3.5 venv
+source venv/bin/activate
 pip freeze > requirements.txt
 
 Install packages
@@ -33,7 +33,7 @@ Start application:
 
 sudo start katja_photos_script
 
-Edit the file /etc/nginx/sites-available/WFB-simulation to read:
+Edit the file /etc/nginx/sites-available/katja_photos_script to read:
 
 server {
         listen 80;
@@ -41,7 +41,7 @@ server {
 
         location / {
                 include proxy_params;
-                proxy_pass http://unix:/home/bosefalk/WFB-simulation/WFB-simulation.sock;
+                proxy_pass http://unix:/home/bosefalk/katja_photos_script/katja_photos_script.sock;
         }
 
 
@@ -49,5 +49,5 @@ server {
 
 Link it with the enabled sites and restart
 
-sudo ln -s /etc/nginx/sites-available/WFB-simulation /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/katja_photos_script /etc/nginx/sites-enabled
 sudo service nginx restart
